@@ -6,9 +6,11 @@ exports.signup = (req, res) => {
     user.save((err, user) => {
         if (err) {
             return res.status(400).json({
-                error : 'Email is taken'
+                err: 'Email is already registered'
             });
         }
+        user.salt = undefined;
+        user.hashed_password = undefined;
         res.json({
             user
         });
