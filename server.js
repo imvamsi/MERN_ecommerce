@@ -8,6 +8,7 @@ require('dotenv').config();
 //route imports
 const authRoute = require('./routes/auth')
 const userRoute = require('./routes/user')
+const categoryRoute = require('./routes/category')
 
 const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
@@ -24,6 +25,7 @@ app.use(expressValidator())
 
 app.use('/api',authRoute);
 app.use('/api', userRoute);
+app.use('/api', categoryRoute);
 
 const port = process.env.PORT || 8000;
 
