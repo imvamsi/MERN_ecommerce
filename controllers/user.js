@@ -1,4 +1,6 @@
 const User = require("../models/user");
+const jwt = require('jsonwebtoken');
+const expressJwt = require('express-jwt');
 
 exports.signup = (req, res) => {
     console.log("req.body", req.body);
@@ -16,3 +18,20 @@ exports.signup = (req, res) => {
         });
     });
 };
+
+exports.signin = (req, res) => {
+    const {email, password} = req;
+    let user = User.findOne({email});
+    if(user) {
+        return res.status(400).json({msg: "user already exists"});
+    }
+
+    const token = jwt.sign({_id: user._id}, process.env.JWT_KEY)
+    //persist token as 't' with expiry date
+    res.cookie('t', token, {expire: new Date() + 9999});
+    return res.json({token: {_id, name, email, role}})
+}
+
+
+
+
