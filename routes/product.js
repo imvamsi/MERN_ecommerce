@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {create} = require('../controllers/category');
+const {create} = require('../controllers/product');
 const {requireSignIn, isAdmin, isAuth} = require('../controllers/auth')
 const { userById } = require("../controllers/user");
 
