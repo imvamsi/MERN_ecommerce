@@ -43,6 +43,13 @@ exports.signin = (req, res) => {
         // retrun response with user and token to frontend client
         const { _id, name, email, role } = user;
         return res.json({ token, user: { _id, email, name, role } });
+        console.log(token);
     });
 };
+
+
+exports.signout = (req, res) => {
+    res.clearCookie('t');
+    res.json({message: "logged out"})
+}
 
