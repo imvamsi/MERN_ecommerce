@@ -1,10 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const {signup, signin, signout} = require('../controllers/user')
-const { userSignUpValidator } = require('../validator/index')
+const {userById} = require('../controllers/user')
+const {requireSignIn, isAdmin, isAuth} = require('../controllers/auth')
 
-router.post('/signup', userSignUpValidator, signup);
-router.post("/signin", signin);
-router.get('/signout', signout);
-
+//get the profile of the authenticated user
+//stupid i know
+//to be refactored later
+router.get('/secret/:userId', requireSignIn, isAuth, (req, res) => {
+    res.json({
+        user: req.profile
+    })
+})
+router.param('userId', userById);
 module.exports = router;
