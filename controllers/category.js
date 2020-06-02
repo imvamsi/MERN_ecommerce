@@ -3,7 +3,7 @@ exports.create = (req, res) => {
     const category = new Category(req.body);
     category.save((err, data) => {
         if(err) {
-            res.status(400).json({
+            return res.status(400).json({
                 msg: "error"
             })
         }
