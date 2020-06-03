@@ -14,7 +14,19 @@ exports.create = (req, res) => {
         }
         let product = new Product(fields);
 
+        const {name, description, quantity, price, shipping, photo, category} = fields;
+        if(! name || !description || !quantity || !price || !shipping || !photo || !category) {
+            return res.status(400).json({
+                msg: "Enter all fields"
+            })
+        }
+
         if (files.photo) {
+            if(files.photo.size > 1000000){
+                return res.status(400).json({
+                    msg: "Image size cannot exceed 1MB"
+                })
+            }
             product.photo.data = fs.readFileSync(files.photo.path);
             product.photo.contentType = files.photo.type;
         }
