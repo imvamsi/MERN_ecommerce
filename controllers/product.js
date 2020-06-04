@@ -142,3 +142,19 @@ exports.list = (req, res) => {
                res.json(data)
            })
 }
+
+exports.listRelated = (req, res) => {
+    console.log(req);
+    let limit = req.query.limit ? parseInt(req.query.limit) : 6;
+    Product.find({_id : {$ne: req.product}, category: req.product.category})
+    .limit(limit)
+    .populate('category', '_id name')
+    .exec((err, data) => {
+        if(err) {
+            return res.status(400).json({
+                msg: "Product not found"
+            });
+        }
+        res.json(data)
+    })
+}
