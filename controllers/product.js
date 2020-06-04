@@ -21,6 +21,20 @@ exports.read = (req, res) => {
     req.product.photo = undefined;
     return res.json(req.product);
 }
+
+exports.remove = (req, res) => {
+    let product = req.product;
+    product.remove((err, deletedProduct) => {
+        if(err) {
+            return res.status(400).json({
+                msg: "Could not be deleted"
+            });
+        }
+        res.json({
+            msg: 'Product deleted'
+        })
+    })
+}
 exports.create = (req, res) => {
     let form = new formidable.IncomingForm();
     form.keepExtensions = true;
@@ -32,12 +46,12 @@ exports.create = (req, res) => {
         }
         let product = new Product(fields);
 
-        const {name, description, quantity, price, shipping, photo, category} = fields;
-        if(! name || !description || !quantity || !price || !shipping || !photo || !category) {
-            return res.status(400).json({
-                msg: "Enter all fields"
-            })
-        }
+        // const {name, description, quantity, price, shipping, photo, category} = fields;
+        // if(! name || !description || !quantity || !price || !shipping || !photo || !category) {
+        //     return res.status(400).json({
+        //         msg: "Enter all fields"
+        //     })
+        // }
 
         if (files.photo) {
             if(files.photo.size > 1000000){
