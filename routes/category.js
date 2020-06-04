@@ -1,7 +1,6 @@
 const express = require('express');
-const Category = require
 const router = express.Router();
-const {create, read, categoryById} = require('../controllers/category');
+const {create, read, removeCategory, update, categoryById, list} = require('../controllers/category');
 const {requireSignIn, isAdmin, isAuth} = require('../controllers/auth')
 const { userById } = require("../controllers/user");
 
@@ -15,6 +14,9 @@ router.get("/category/:categoryId", read);
 //       res.status(500).send("server error");
 //     }
 //   });
+router.delete('/category/:categoryId/:userId', requireSignIn, isAuth, isAdmin, removeCategory);
+router.put('/category/:categoryId/:userId', requireSignIn, isAuth, isAdmin, update);
+router.get('/categories', list);
 router.post('/category/create/:userId', requireSignIn, isAuth, isAdmin, create);
 router.param("categoryId", categoryById);
 router.param("userId", userById);
