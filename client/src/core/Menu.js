@@ -20,7 +20,7 @@ const Menu = (props) => {
                     <Link class="nav-link" to="/signin" style={isActive(props.history, '/signin')}>Sign In</Link>
                 </li>
                 <li class="nav-item">
-                    <Link class="nav-link" to="/signup" style={isActive(props.history, '/signout')}>Sign Up</Link>
+                    <Link class="nav-link" to="/signup" style={isActive(props.history, '/signup')}>Sign Up</Link>
                 </li>
             </ul> 
         </div>
