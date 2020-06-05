@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import Layout from '../core/Layout'
+import { signup } from '../api';
 
 
 
@@ -10,6 +11,7 @@ const SignUp = () => {
         password: ''
     });
   
+    const {name, email, password} = value;
     const handleChange = event => {
         setValue({...value, 
              [event.target.name]: event.target.value
@@ -18,6 +20,7 @@ const SignUp = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
+        signup({name, email, password});
     }
     return (
         <>
@@ -59,7 +62,6 @@ const SignUp = () => {
                         />
                     </div>
                     <button type="submit" className="btn btn-primary">Submit</button>
-                    {JSON.stringify(value)}
                 </form>
             </div>
         </>
