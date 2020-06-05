@@ -1,10 +1,9 @@
 import React from 'react'
+import Layout from '../core/Layout'
 
 const SignUp = () => {
     return (
-        <div>
-            SignUp
-        </div>
+        <Layout title='Sign Up' description='Sign up to the app'></Layout>
     )
 }
 
