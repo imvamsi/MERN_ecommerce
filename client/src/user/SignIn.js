@@ -3,7 +3,7 @@ import Layout from '../core/Layout'
 
 const SignIn = () => {
     return (
-            <Layout title='Log In' description='Sign in to the app'></Layout>
+        <Layout title='Log In' description='Sign in to the app'></Layout>
     )
 }
 
