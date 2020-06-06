@@ -29,5 +29,5 @@ export const signin = (user) => {
           return res.json()
       })
       .catch(err => console.log(err))
-  }
+}
 
