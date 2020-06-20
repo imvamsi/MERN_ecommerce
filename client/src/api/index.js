@@ -65,3 +65,12 @@ export const createProduct = (userId, token, product) => {
     })
     .catch(err => console.log(err))
 }
+
+//get categories
+export const getCategories = () => {
+    return fetch(`${url}/categories`, {
+        method: 'GET'
+    })
+    .then(res => res.json())
+    .catch(err => console.log(err))
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../../core/Layout'
 import { showNavLinks } from '../../utils'
-import { createProduct } from '../../api';
+import { createProduct, getCategories} from '../../api';
 
 
 const AddProduct = () => {
@@ -23,7 +23,10 @@ const AddProduct = () => {
     });
 
     React.useEffect(() => {
-        setValues({...values, formData: new FormData()})
+        // setValues({...values, formData: new FormData()})
+        getCategories()
+        .then(data => setValues({...values, categories: data, formData: new FormData()}))
+        .catch(err => console.log(err))
     }, []);
     const{name, 
         description, 
@@ -78,8 +81,11 @@ const AddProduct = () => {
                             <label className="text-muted">Category</label>
                             <select value={category} className="form-control" onChange={handleChange('category')}>
                                 <option value="">select category</option>
-                                <option value="5ed9617c48dc014b71a5be4e">PHP</option>
-                                <option value="5ed9617c48dc014b71a5be4e">Node</option>
+                                {/* <option value="5ed9617c48dc014b71a5be4e">PHP</option>
+                                <option value="5ed9617c48dc014b71a5be4e">Node</option> */}
+                                {categories && categories.map((item, id) => (
+                                    <option key={item._id}>{item.name}</option>
+                                ))}
                             </select>
                         </div>
                         <div className="form-group">
