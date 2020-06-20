@@ -74,3 +74,12 @@ export const getCategories = () => {
     .then(res => res.json())
     .catch(err => console.log(err))
 }
+
+//get products
+export const getProducts = (sortBy) => {
+    return fetch(`${url}/products?sortBy=${sortBy}&order=desc&limit=4`, {
+        method: 'GET'
+    })
+    .then(res => res.json())
+    .catch(err => console.log(err))
+}

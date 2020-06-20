@@ -6,7 +6,7 @@ const AdminRoute = ({component: Component, ...rest}) => {
     return (
         <Route {...rest}
             render = {
-                props => showNavLinks() ? (
+                props => showNavLinks() && showNavLinks().user.role === 1 ? (
                     <Component {...props}/>
                 ) : (
                     <Redirect
