@@ -19,7 +19,7 @@ const Menu = (props) => {
                     <Link class="nav-link active" to="/" style={isActive(props.history, '/')}>Home</Link>
                 </li>
                 <li class="nav-item">
-                    <Link class="nav-link active" to="/dashboard" style={isActive(props.history, '/dashboard')}>Dashboard</Link>
+                    <Link class="nav-link active" to="/user/dashboard" style={isActive(props.history, '/user/dashboard')}>Dashboard</Link>
                 </li>
                 {!showNavLinks() ? 
                     (

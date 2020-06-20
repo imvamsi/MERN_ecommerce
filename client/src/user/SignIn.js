@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 import Layout from '../core/Layout'
 import { signin } from '../api';
-import { isAuthenticated } from '../utils/index'
+import { isAuthenticated, showNavLinks} from '../utils/index'
 import Alert from '../components/Alerts';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 const SignIn = (props) => {
     const[value, setValue] = useState({
@@ -15,6 +15,8 @@ const SignIn = (props) => {
     });
 
     const[alert, setAlert] = useState(null);
+    
+    const{user} = showNavLinks();
   
     const {name, email, password, error, success} = value;
     const handleChange = event => {
@@ -40,7 +42,12 @@ const SignIn = (props) => {
              } else {
                 handleAlert('Successfully Authenticated', 'success');
                 isAuthenticated(data);
-                props.history.push('/');
+                // props.history.push('/dashboard');
+                if(user && user.role === 1) {
+                    return props.history.push('/admin/dashboard')
+                } else {
+                    return props.history.push('/user/dashboard');
+                }
             }
         })
     }
