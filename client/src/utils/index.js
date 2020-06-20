@@ -1,9 +1,6 @@
 export const isAuthenticated = (data) => {
     if(typeof window !== undefined) {
         localStorage.setItem('sessionToken', JSON.stringify(data));
-        // if(!localStorage.sessionToken){
-        //     props.history.push('/signin')
-        // }
     } 
 }
 
