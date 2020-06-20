@@ -3,7 +3,7 @@ import Layout from '../core/Layout'
 import { isAuthenticated, showNavLinks } from '../utils'
 import { Link } from 'react-router-dom';
 
-const Dashboard = () => {
+const AdminDashboard = () => {
 
     // console.log(isAuthenticated)
     const {user} = showNavLinks();
@@ -13,13 +13,13 @@ const Dashboard = () => {
             <div className="row">
                 <div className="col-md-3">
                     <div className="card">
-                    <h5 className="card-header">User Links</h5>
+                    <h5 className="card-header">Admin Links</h5>
                         <ul className="list-group">
                                 <li className="list-group-item">
-                                    <Link className="nav-link" to ='/cart'>Shopping cart</Link>
+                                    <Link className="nav-link" to ='/create/category'>Create category</Link>
                                 </li>
                                 <li className="list-group-item">
-                                    <Link classname="nav-link" to="/profile/update">Update your profile</Link>
+                                    <Link classname="nav-link" to="/create/product">create product</Link>
                                 </li>
                         </ul>
                     </div>
@@ -33,16 +33,10 @@ const Dashboard = () => {
                             <li className="list-group-item">{user.role === 0 ? 'Registered user' : 'Admin' }</li>
                         </ul>
                     </div>
-                    <div className="card mb-5">
-                        <h5 className="card-header">Purchase info</h5>
-                        <ul className="list-group">
-                            <li className="list-group-item">history</li>
-                        </ul>
-                    </div>
                 </div>
             </div> 
             </>         
     )
 }
 
-export default Dashboard
+export default AdminDashboard

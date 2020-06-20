@@ -41,13 +41,14 @@ const SignIn = (props) => {
                  handleAlert(data.err, 'danger');
              } else {
                 handleAlert('Successfully Authenticated', 'success');
-                isAuthenticated(data);
-                // props.history.push('/dashboard');
-                if(user && user.role === 1) {
-                    return props.history.push('/admin/dashboard')
-                } else {
-                    return props.history.push('/user/dashboard');
+                if(isAuthenticated(data)){
+                    return props.history.push('/')
                 }
+                // if(data.user && data.user.role === 1) {
+                //     return props.history.push('/admin/dashboard')
+                // } else {
+                //     return props.history.push('/user/dashboard');
+                // }
             }
         })
     }
