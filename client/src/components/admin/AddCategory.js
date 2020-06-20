@@ -39,7 +39,7 @@ const AddCategory = () => {
                                 <button className="btn btn-outline-primary my-5">Create Category</button>
                             </div>
                         </form>
-                        <Link to = '/admin/dashboard'>Back to Admin Dashboard</Link>
+                        <Link to = '/admin/dashboard'> > Back to Admin Dashboard</Link>
                     </div>
                 </div>
             </div>
