@@ -16,10 +16,10 @@ const AdminDashboard = () => {
                     <h5 className="card-header">Admin Links</h5>
                         <ul className="list-group">
                                 <li className="list-group-item">
-                                    <Link className="nav-link" to ='/create/category'>Create category</Link>
+                                    <Link className="nav-link" to ='/category/create'>Create category</Link>
                                 </li>
                                 <li className="list-group-item">
-                                    <Link classname="nav-link" to="/create/product">create product</Link>
+                                    <Link classname="nav-link" to="/product/create">create product</Link>
                                 </li>
                         </ul>
                     </div>

@@ -41,9 +41,11 @@ const SignIn = (props) => {
                  handleAlert(data.err, 'danger');
              } else {
                 handleAlert('Successfully Authenticated', 'success');
-                if(isAuthenticated(data)){
-                    return props.history.push('/')
-                }
+                // if(isAuthenticated(data)){
+                //     return props.history.push('/')
+                // }
+                isAuthenticated(data);
+                props.history.push('/')
                 // if(data.user && data.user.role === 1) {
                 //     return props.history.push('/admin/dashboard')
                 // } else {
