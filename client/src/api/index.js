@@ -83,3 +83,4 @@ export const getProducts = (sortBy) => {
     .then(res => res.json())
     .catch(err => console.log(err))
 }
+

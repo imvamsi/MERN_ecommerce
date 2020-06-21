@@ -83,7 +83,7 @@ const AddProduct = () => {
                                 <option value="">select category</option>
                                 {/* <option value="5ed9617c48dc014b71a5be4e">PHP</option>
                                 <option value="5ed9617c48dc014b71a5be4e">Node</option> */}
-                                {categories && categories.map((item, id) => (
+                                {categories && categories.map((item, _id) => (
                                     <option key={item._id}>{item.name}</option>
                                 ))}
                             </select>
