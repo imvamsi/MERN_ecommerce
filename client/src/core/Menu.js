@@ -12,24 +12,24 @@ const isActive =(history, path) => {
     }
 }
 const Menu = (props) => {
+    console.log(showNavLinks());
+    // console.log(user.role===1)
     return (
         <div>
            <ul class="nav bg-primary">
                 <li class="nav-item">
                     <Link class="nav-link active" to="/" style={isActive(props.history, '/')}>Home</Link>
                 </li>
-                {/* {showNavLinks() && showNavLinks().user.role === 1 ? (
+                {showNavLinks() && showNavLinks().user.role === 1 ? (
                     <li class="nav-item">
                     <Link class="nav-link active" to="/admin/dashboard" style={isActive(props.history, '/admin/dashboard')}>Admin Dashboard</Link>
                 </li>
-                ): (
+                ) : (
                     <li class="nav-item">
-                    <Link class="nav-link active" to="/admin/dashboard" style={isActive(props.history, '/admin/dashboard')}>Admin Dashboard</Link>
-                </li>
-                )} */}
-                  <li class="nav-item">
                     <Link class="nav-link active" to="/user/dashboard" style={isActive(props.history, '/user/dashboard')}> Dashboard</Link>
-                </li>
+                </li>  
+                )}
+               
                 {!showNavLinks() ? 
                     (
                         <>
