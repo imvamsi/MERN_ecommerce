@@ -23,24 +23,23 @@ const Shop = () => {
     const handleFilters = (filters, filterBy) => {
         const newFilters = {...myFilters};
         newFilters.filters[filterBy] = filters;
-       
-        if(filterBy === 'price'){
+        console.log(newFilters.filters[filterBy])
+        if(filterBy === 'price') {
             let cost = handlePriceChange(filters);
             newFilters.filters[filterBy] = cost;
         }
-        setMyFilters(newFilters)
+        setMyFilters(newFilters)    
     }
 
     const handlePriceChange = (value) => {
-        const data = prices;
-        let array=[];
-        for(let key in data) {
-            if(data[key]._id === parseInt(value)) {
-               array = data[key].array
+        let data = prices;
+        let arr = [];
+        data.forEach(item => {
+            if(item._id === parseInt(value)) {
+                arr = item.array;
             }
-            
-        }
-        return array;
+        })
+        return arr;
     }
 
     return (

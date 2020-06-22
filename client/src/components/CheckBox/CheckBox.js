@@ -12,7 +12,6 @@ const CheckBox = ({categories, handleFilters}) => {
         } else {
             newItems.splice(currentItems, 1);
         }
-        console.log(newItems)
         setChecked(newItems)
         handleFilters(newItems)
     }
