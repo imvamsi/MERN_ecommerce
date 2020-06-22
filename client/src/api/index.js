@@ -84,3 +84,21 @@ export const getProducts = (sortBy) => {
     .catch(err => console.log(err))
 }
 
+//product search
+export const getFilteredProducts = (skip, limit, filters={}) => {
+    const data = {
+        skip,limit, filters
+    }
+    return fetch(`${url}/products/by/search`, {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+    .then(res =>  {
+        return res.json()
+    })
+    .catch(err => console.log(err))
+}
