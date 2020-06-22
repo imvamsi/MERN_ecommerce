@@ -14,6 +14,7 @@ const Shop = () => {
     const [error, setError] = useState(false);
     const [limit, setLimit] = useState(3);
     const [skip, setSkip] = useState(0);
+    const[size, setSize] = useState(0)
     const [filteredResults, setFilteredResults] = useState([]);
 
     const init = () => {
@@ -59,6 +60,7 @@ const Shop = () => {
         return array;
     };
 
+
     return (
         <>
         <Layout
@@ -66,7 +68,8 @@ const Shop = () => {
             description="Search and find books of your choice"
             className="container-fluid"
         />
-            <div className="row">
+           <div className="container-fluid">
+           <div className="row">
                 <div className="col-4">
                     <h4>Filter by categories</h4>
                     <ul>
@@ -98,6 +101,7 @@ const Shop = () => {
                     </div>
                 </div>
             </div>
+           </div>
         </>
     );
 };
